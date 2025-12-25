@@ -1,0 +1,78 @@
+server:
+  servlet:
+    context-path: /mechyam
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: false
+  port: 8080
+  tomcat:
+    max-swallow-size: 50MB
+    max-http-form-post-size: 50MB
+  # address: 192.168.1.192
+  # address: 192.168.1.114
+
+spring:
+  datasource:
+    url: jdbc:mysql://database-1.c92k202mcnue.ap-southeast-1.rds.amazonaws.com:3306/mechyam
+    username: admin
+    password: TejasSoni
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tejassoni910@gmail.com
+    password: viowppacozyzetas
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  redis:
+    host: localhost
+    port: 6379
+
+  main:
+    allow-circular-references: true
+
+# Application specific configuration
+app:
+  manager:
+    email: tejassoni0004@gmail.com
+  email:
+    subject:
+      prefix: "[Mechyam Contact]"
+  otp:
+    length: 6
+    expiry-minutes: 10
+
+# JWT configuration
+jwt:
+  secret: mySuperSecretKeyForAdminAuthentication2024MakeItVeryLongAndSecure
+  expiration: 86400000
+  temp:
+    expiration: 600000
+
+# Cloudinary configuration
+cloudinary:
+  cloud-name: daxap5rkw
+  api-key: 121696175895798
+  api-secret: T_lcxHnOCHqx-qInLsIzZxeJlrQ
